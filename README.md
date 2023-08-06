@@ -100,4 +100,4 @@ Start running both of these files by opening a separate terminal for each in Jup
 
 NOTE: In order to troubleshoot the database connection, here are two tips.
 1. The output and errors from `clean_data.py` can be found in `etl.log`.
-2. Use this command from a terminal in JupyterLab to confirm what database URL is being used: `echo $DATABASE_URL`# https-github.com-nirmalaJ21-FinalProjectRailDataAPIKey
+2. Use this command from a terminal in JupyterLab to confirm what database URL is being used: `echo $DATABASE_URL`
