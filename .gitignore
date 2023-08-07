@@ -1,0 +1,4 @@
+#  Adding ignore of credential in the .env file
+.env
+*.log
+PGsqlDocker/pgsql/data/*
