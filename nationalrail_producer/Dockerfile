@@ -1,5 +1,4 @@
-FROM confluentinc/cp-kafka:latest
-
+FROM confluentinc/cp-kafka:latest.amd64
 # set user to root to allow for package installation
 USER root
 
@@ -13,8 +12,8 @@ COPY ./requirements.txt /code/requirements.txt
 
 # add files to directory
 COPY . /code/
-
 # install pip and install librarires
+
 RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python get-pip.py
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
