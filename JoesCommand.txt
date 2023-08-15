@@ -1,0 +1,10 @@
+cd zookeeper\
+docker build . -t zookeeper:latest
+cd ../Broker
+docker build . -t broker:latest
+cd ..\nationalrail_producer\
+docker build . -t kafkaproducer:latest
+cd ..\spark\
+docker build . -t spark:latest
+cd ..
+docker compose up

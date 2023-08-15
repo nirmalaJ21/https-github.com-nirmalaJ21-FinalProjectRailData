@@ -64,6 +64,16 @@ For each component, enter the directory and build the Docker image using the `do
 ```bash
 $ cd zookeeper
 $ docker build . -t zookeeper:latest
+
+ cd zookeeper\
+ docker build . -t zookeeper:latest
+ cd ../Broker
+ docker build . -t broker:latest
+ cd ..\nationalrail_producer\
+ docker build . -t cd ..\sp :latest
+ cd ..\spark\
+ docker build . -t spark:latest
+
 ```
 
 ### 4. Running the Containers
