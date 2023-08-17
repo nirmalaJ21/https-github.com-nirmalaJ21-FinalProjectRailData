@@ -61,6 +61,35 @@ For each component, enter the directory and build the Docker image using the `do
 3. Producer `kafkaproducer:latest`
 4. Consumer: `spark:latest`
 
+...PC...
+ cd zookeeper\
+ docker build . -t zookeeper:latest
+ cd ../Broker
+ docker build . -t broker:latest
+ cd ..\nationalrail_producer\
+ docker build . -t kafkaproducer:latest
+ cd ..\spark\
+ docker build . -t spark:latest
+ cd ..
+ docker compose up
+
+ ...MAC...
+
+ cd zookeeper/
+ docker build . -t zookeeper:latest
+ cd ../Broker
+ docker build . -t broker:latest
+ cd ../nationalrail_producer/
+ docker build . -t kafkaproducer:latest
+ cd ../spark/
+ docker build . -t spark:latest
+ cd ..
+ docker compose up
+
+
+```
+
+
 ```bash
 $ cd zookeeper
 $ docker build . -t zookeeper:latest
