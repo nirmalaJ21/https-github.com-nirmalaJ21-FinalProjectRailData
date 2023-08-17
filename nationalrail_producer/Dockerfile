@@ -1,4 +1,4 @@
-FROM confluentinc/cp-kafka:latest
+FROM confluentinc/cp-kafka:latest.amd64
 
 # set user to root to allow for package installation
 USER root
