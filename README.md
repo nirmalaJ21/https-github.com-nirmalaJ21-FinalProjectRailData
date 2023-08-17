@@ -130,3 +130,28 @@ Start running both of these files by opening a separate terminal for each in Jup
 NOTE: In order to troubleshoot the database connection, here are two tips.
 1. The output and errors from `clean_data.py` can be found in `etl.log`.
 2. Use this command from a terminal in JupyterLab to confirm what database URL is being used: `echo $DATABASE_URL`
+
+#   Development notes
+**broker:**
+This sets up the kafka service from confluentinc/cp-kafka:7.3.0
+
+**nationalrail_producer:**
+This sets up the kafka producer that reads data from nationalrail.co.uk
+- opendata-nationalrail-client.py is the python script that reads the data from the API and feeds into kafka
+
+**spark:**
+This is the kafka consumer and the script that loads the data into the PostgreSQL database.
+- clean_data.py - this cleans the data from the API
+  - Convert time columns to datetime.time
+  - computes final_df['aat'] = final_df['arr'].apply(lambda d: d.get('et'))  # Lines 115
+  - computes final_df['adt'] = final_df['dep'].apply(lambda d: d.get('et'))   # Lines 116
+  - Convert 'delayed' to boolean (122-123)
+  - Converts time columns to pd.to_datetime (125-127)
+- spark_consumer.py - This reads the stream from kafka and then writes to the database.
+
+
+**zookeeper:**
+This is the zookeeper for the kafka cluster based on confluentinc/cp-zookeeper:7.3.0
+a succinct explanation of zookeeper:
+Zookeeper keeps track of status of the Kafka cluster nodes and it also keeps track of Kafka topics, partitions etc.
+from: https://www.cloudkarafka.com/blog/cloudkarafka-what-is-zookeeper.html
